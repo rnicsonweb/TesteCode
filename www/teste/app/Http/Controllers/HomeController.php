@@ -26,10 +26,10 @@ class HomeController extends Controller
         $separacao = array_rand($jogadores, $quantidade);
         $time = array_values( array_intersect_key( $jogadores, array_flip( array_rand( $jogadores, $quantidade ) ) ) );
         $time2 = array_values( array_intersect_key( $jogadores, array_flip( array_rand( $jogadores, $quantidade ) ) ) );
-        $conversao = implode(",", $time);
-        $conversao2 = implode(",", $time2);
-        echo("Time 1:").$conversao."<br>";
-        echo("Time 2:").$conversao2;
+        $conversao = implode(" | ", $time);
+        $conversao2 = implode(" | ", $time2);
+
+        return view('resultado',compact('conversao','conversao2'));
 
 
     }
